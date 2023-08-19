@@ -44,7 +44,7 @@ public class MovieRepository {
 	}
 	
 	public boolean addMovieDirectorPair(String director,String movie){
-		if(directors.containsKey(director) && movies.containsKey(movie)) {
+		if(directors.containsKey(director)==true && movies.containsKey(movie)==true) {
 			if(directorsMovies.containsKey(director)) {
 				directorsMovies.get(director).add(movie);
 			}else {
@@ -70,7 +70,7 @@ public class MovieRepository {
 	
 	public List<String> getMoviesByDirectorName(String director) {
 		List<String> ans = new ArrayList<>();
-		if(directorsMovies.containsKey(director)) {
+		if(directorsMovies.containsKey(director)==true) {
 		for(String m:directorsMovies.get(director))
 			ans.add(m);
 		}
