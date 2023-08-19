@@ -98,10 +98,13 @@ public class MovieRepository {
 	public void deleteAllDirectors() {
 		if(directors.size()!=0) {
 		for(String d:directors.keySet()) {
-		for(String m:directorsMovies.get(d))
-			movies.remove(m);
+			if(directorsMovies.containsKey(d)==true) {
+			for(String m:directorsMovies.get(d))
+					movies.remove(m);
+			directorsMovies.remove(d);
+			}
 		directors.remove(d);
-		directorsMovies.remove(d);
+		
 		}
 	}
 	}
