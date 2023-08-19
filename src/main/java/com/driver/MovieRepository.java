@@ -68,10 +68,10 @@ public class MovieRepository {
 	}
 	
 	
-	public List<Movie> findAllMovies() {
-		List<Movie> ans = new ArrayList<>();
+	public List<String> findAllMovies() {
+		List<String> ans = new ArrayList<>();
 		for(String m:movies.keySet())
-			ans.add(movies.get(m));
+			ans.add(m);
 		return ans;
 	}
 	
