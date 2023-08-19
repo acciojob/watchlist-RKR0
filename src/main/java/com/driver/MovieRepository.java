@@ -50,7 +50,7 @@ public class MovieRepository {
 	
 	public Movie getMovieByName(String movie) {
 		
-		return movies.get(movie);
+		return movies.getOrDefault(movie,null);
 	}
 	
 	
@@ -62,8 +62,10 @@ public class MovieRepository {
 	
 	public List<String> getMoviesByDirectorName(String director) {
 		List<String> ans = new ArrayList<>();
+		if(directorsMovies.containsKey(director)) {
 		for(String m:directorsMovies.get(director))
 			ans.add(m);
+		}
 		return ans;
 	}
 	
@@ -76,10 +78,12 @@ public class MovieRepository {
 	}
 	
 	public void deleteDirectorByName(String director) {
+		if(directorsMovies.containsKey(director)) {
 		for(String m:directorsMovies.get(director))
 			movies.remove(m);
 		directors.remove(director);
 		directorsMovies.remove(director);
+		}
 	}
 	
 	public void deleteAllDirectors() {
