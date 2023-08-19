@@ -60,10 +60,10 @@ public class MovieRepository {
 	}
 	
 	
-	public List<Movie> getMoviesByDirectorName(String director) {
-		List<Movie> ans = new ArrayList<>();
+	public List<String> getMoviesByDirectorName(String director) {
+		List<String> ans = new ArrayList<>();
 		for(String m:directorsMovies.get(director))
-			ans.add(movies.get(m));
+			ans.add(m);
 		return ans;
 	}
 	
