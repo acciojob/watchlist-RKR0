@@ -10,12 +10,20 @@ import org.springframework.stereotype.Repository;
 public class MovieRepository {
 	
   //HashMap<directorName,movieName>
-	HashMap<String,List<String>> directorsMovies = new HashMap<>();
+	
+	
+	HashMap<String,List<String>> directorsMovies;
+	HashMap<String,Movie> movies;
+	HashMap<String,Director> directors;
+	
 
-	HashMap<String,Movie> movies = new HashMap<>();
 	
-	HashMap<String,Director> directors = new HashMap<>();
-	
+
+	public MovieRepository() {
+		directorsMovies = new HashMap<>();
+		movies = new HashMap<>();
+		directors = new HashMap<>();
+	}
 
 	public boolean addMovie(Movie movie){
 		if(movies.containsKey(movie.getName()))
@@ -87,6 +95,7 @@ public class MovieRepository {
 	}
 	
 	public void deleteAllDirectors() {
+		if(directors.size()!=0) {
 		for(String d:directors.keySet()) {
 		for(String m:directorsMovies.get(d))
 			movies.remove(m);
@@ -94,6 +103,6 @@ public class MovieRepository {
 		directorsMovies.remove(d);
 		}
 	}
-	
+	}
 	
 }
