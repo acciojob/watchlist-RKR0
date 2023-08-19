@@ -86,12 +86,13 @@ public class MovieRepository {
 	}
 	
 	public void deleteDirectorByName(String director) {
-		if(directorsMovies.containsKey(director)) {
+		if(directorsMovies.containsKey(director)==true) {
 		for(String m:directorsMovies.get(director))
 			movies.remove(m);
 		directors.remove(director);
 		directorsMovies.remove(director);
 		}
+		return;
 	}
 	
 	public void deleteAllDirectors() {
